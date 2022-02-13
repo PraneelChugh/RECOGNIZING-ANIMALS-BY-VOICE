@@ -1,17 +1,18 @@
 body
 {
-  font-family: 'Akaya Telivigala', cursive;
-  background: #E2E8DD;
+  font-family: 'Special Elite', cursive;
+  background: #0eeafa;
 }
 
 .header_div
   {
-  background: #95A3A4;
-  color: white; 
+  background: white;
+  color: #ce2700; 
   }
 
   .header_div p{
     font-family: 'Roboto', sans-serif;
+    color: gray;
     letter-spacing: 2px;
     font-size: 12px;
     font-weight: bold;
@@ -23,8 +24,6 @@ body
     font-weight: bolder;
     letter-spacing: 3px;
   }
-
-  
   .copy_right_footer {
    position: fixed;
    color: #6c757d;

@@ -1,7 +1,7 @@
 function startClassification()
 {
   navigator.mediaDevices.getUserMedia({ audio: true});
-  classifier = ml5.soundClassifier('https://teachablemachine.withgoogle.com/models/u02fOYRBx/model.json', modelReady);
+  classifier = ml5.soundClassifier('https://teachablemachine.withgoogle.com/models/JgPdMoLYS/model.json', modelReady);
 }
 
 function modelReady(){
@@ -9,6 +9,8 @@ function modelReady(){
 }
 var dog = 0;
 var cat = 0;
+var hen = 0;
+var lion = 0;
 
 function gotResults(error, results) {
   if (error) {
@@ -21,8 +23,11 @@ function gotResults(error, results) {
 
 
     document.getElementById("result_label").innerHTML = 'Detected voice is of  - '+ results[0].label;
-    document.getElementById("result_count").innerHTML = 'Detected Dog - '+dog+ ' Detected Cat - '+cat;
+    document.getElementById("result_count").innerHTML = 'Detected Dog - '+dog+ ' Detected Cat - '+cat+' Detected Hen - '+hen+' Detected Lion - '+lion;
     document.getElementById("result_label").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_r+")";
+    document.getElementById("result_label").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_r+")";
+    document.getElementById("result_count").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_r+")";
+
     document.getElementById("result_count").style.color = "rgb("+random_number_r+","+random_number_g+","+random_number_r+")";
 
     img = document.getElementById('animal_image');
@@ -33,8 +38,12 @@ function gotResults(error, results) {
     } else if (results[0].label == "Meowing") {
       img.src = 'cat.gif';
       cat = cat + 1;
-    } else{
+    } else if (results[0].label == "Cocking") {
+      img.src = 'hen.gif';
+      cat = cat + 1;
+    } else if (results[0].label == "Roaring") {
+      img.src = 'lion.gif';
+      cat = cat + 1;
+    }else{
       img.src = 'listen.gif';
-    }
-  }
-}
+    }}}
